@@ -1,0 +1,37 @@
+{
+  "schema_version": "0.1",
+  "dataset_kind": "synthetic",
+  "scope": "Fabricated examples only; Solana and Arbitrum evidence tracks stay separate; no actual wallets or transactions",
+  "events": [
+    {
+      "id": "SOL-SYN-001", "network": "solana", "kind": "ordering_anomaly",
+      "observed_at": "2026-10-01T10:00:00Z", "source_ref": "fixture:solana:ordering:01",
+      "observed": {"pattern_summary": "Three consecutive synthetic swap observations with a large intra-slot midprice displacement"}
+    },
+    {
+      "id": "SOL-SYN-002", "network": "solana", "kind": "oracle_deviation",
+      "observed_at": "2026-10-01T10:00:02Z", "source_ref": "fixture:solana:oracle:02",
+      "observed": {"asset": "SYN-SOL", "reference_price": 150.0, "consumed_price": 144.0}
+    },
+    {
+      "id": "SOL-SYN-003", "network": "solana", "kind": "insufficient_data",
+      "observed_at": "2026-10-01T10:00:04Z", "source_ref": "fixture:solana:missing:03",
+      "observed": {"missing": "slot metadata and signed oracle source samples"}
+    },
+    {
+      "id": "ARB-SYN-001", "network": "arbitrum_one", "kind": "oracle_deviation",
+      "observed_at": "2026-10-01T10:00:01Z", "source_ref": "fixture:arbitrum:oracle:01",
+      "observed": {"asset": "SYN-ETH", "reference_price": 3200.0, "consumed_price": 3168.0}
+    },
+    {
+      "id": "ARB-SYN-002", "network": "arbitrum_one", "kind": "sequencer_down",
+      "observed_at": "2026-10-01T10:00:03Z", "source_ref": "fixture:arbitrum:sequencer:02",
+      "observed": {"status_note": "Fabricated sequencer interruption marker"}
+    },
+    {
+      "id": "ARB-SYN-003", "network": "arbitrum_one", "kind": "sequencer_recovered",
+      "observed_at": "2026-10-01T10:00:06Z", "source_ref": "fixture:arbitrum:sequencer:03",
+      "observed": {"status_note": "Fabricated connectivity recovery; exposure not checked"}
+    }
+  ]
+}
