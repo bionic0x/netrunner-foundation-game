@@ -1,0 +1,190 @@
+{
+  "authority": "NONE: no network calls, signed transactions, orders or production alerts",
+  "dossier_sha256": "eedc3835f8d7ef7eb0c18493dff532e0e3d8fb14ff1a5f622692d9a755e33c40",
+  "findings": [
+    {
+      "alternative_explanations": [
+        "Different price source/decimals",
+        "Stale but valid sampling window",
+        "Fixture construction"
+      ],
+      "claim_status": "HYPOTHESIS",
+      "classification": "REVIEW_ORACLE",
+      "event_id": "ARB-SYN-001",
+      "inference": "A price-input discrepancy is present in the synthetic fixture; cause and user harm are unverified.",
+      "missing_evidence": [
+        "Original feed timestamps/decimals",
+        "On-chain consumed value path",
+        "A policy-defined discrepancy threshold"
+      ],
+      "network": "arbitrum_one",
+      "observation": {
+        "asset": "SYN-ETH",
+        "consumed_price": 3168.0,
+        "reference_price": 3200.0
+      },
+      "observed_at": "2026-10-01T10:00:01+00:00",
+      "prohibited_inferences": [
+        "No malicious actor attribution",
+        "No realized harm or profit",
+        "No live execution authority"
+      ],
+      "source_kind": "synthetic_fixture",
+      "source_ref": "fixture:arbitrum:oracle:01",
+      "synthetic_price_difference_pct": 1.0
+    },
+    {
+      "alternative_explanations": [
+        "RPC-only observation failure",
+        "Stale monitor health",
+        "Sequencer status without application recovery"
+      ],
+      "claim_status": "HYPOTHESIS",
+      "classification": "REVIEW_RECOVERY",
+      "event_id": "ARB-SYN-002",
+      "inference": "Synthetic sequencer status alone does not establish whether protocol exposure is resolved.",
+      "missing_evidence": [
+        "Independent sequencer verification",
+        "Oracle/feed freshness",
+        "Protocol-level post-recovery state"
+      ],
+      "network": "arbitrum_one",
+      "observation": {
+        "status_note": "Fabricated sequencer interruption marker"
+      },
+      "observed_at": "2026-10-01T10:00:03+00:00",
+      "prohibited_inferences": [
+        "No malicious actor attribution",
+        "No realized harm or profit",
+        "No live execution authority"
+      ],
+      "source_kind": "synthetic_fixture",
+      "source_ref": "fixture:arbitrum:sequencer:02"
+    },
+    {
+      "alternative_explanations": [
+        "RPC-only observation failure",
+        "Stale monitor health",
+        "Sequencer status without application recovery"
+      ],
+      "claim_status": "HYPOTHESIS",
+      "classification": "REVIEW_RECOVERY",
+      "event_id": "ARB-SYN-003",
+      "inference": "Synthetic sequencer status alone does not establish whether protocol exposure is resolved.",
+      "missing_evidence": [
+        "Independent sequencer verification",
+        "Oracle/feed freshness",
+        "Protocol-level post-recovery state"
+      ],
+      "network": "arbitrum_one",
+      "observation": {
+        "status_note": "Fabricated connectivity recovery; exposure not checked"
+      },
+      "observed_at": "2026-10-01T10:00:06+00:00",
+      "prohibited_inferences": [
+        "No malicious actor attribution",
+        "No realized harm or profit",
+        "No live execution authority"
+      ],
+      "source_kind": "synthetic_fixture",
+      "source_ref": "fixture:arbitrum:sequencer:03"
+    },
+    {
+      "alternative_explanations": [
+        "Ordinary priority-fee ordering",
+        "Independent transactions",
+        "Incomplete transaction visibility"
+      ],
+      "claim_status": "HYPOTHESIS",
+      "classification": "REVIEW_ORDERING",
+      "event_id": "SOL-SYN-001",
+      "inference": "The fixture describes a possible ordering anomaly; it does not prove sandwiching or intent.",
+      "missing_evidence": [
+        "Complete relevant transaction sequence",
+        "Block/slot and fee reconstruction",
+        "Counterfactual price impact"
+      ],
+      "network": "solana",
+      "observation": {
+        "pattern_summary": "Three consecutive synthetic swap observations with a large intra-slot midprice displacement"
+      },
+      "observed_at": "2026-10-01T10:00:00+00:00",
+      "prohibited_inferences": [
+        "No malicious actor attribution",
+        "No realized harm or profit",
+        "No live execution authority"
+      ],
+      "source_kind": "synthetic_fixture",
+      "source_ref": "fixture:solana:ordering:01"
+    },
+    {
+      "alternative_explanations": [
+        "Different price source/decimals",
+        "Stale but valid sampling window",
+        "Fixture construction"
+      ],
+      "claim_status": "HYPOTHESIS",
+      "classification": "REVIEW_ORACLE",
+      "event_id": "SOL-SYN-002",
+      "inference": "A price-input discrepancy is present in the synthetic fixture; cause and user harm are unverified.",
+      "missing_evidence": [
+        "Original feed timestamps/decimals",
+        "On-chain consumed value path",
+        "A policy-defined discrepancy threshold"
+      ],
+      "network": "solana",
+      "observation": {
+        "asset": "SYN-SOL",
+        "consumed_price": 144.0,
+        "reference_price": 150.0
+      },
+      "observed_at": "2026-10-01T10:00:02+00:00",
+      "prohibited_inferences": [
+        "No malicious actor attribution",
+        "No realized harm or profit",
+        "No live execution authority"
+      ],
+      "source_kind": "synthetic_fixture",
+      "source_ref": "fixture:solana:oracle:02",
+      "synthetic_price_difference_pct": 4.0
+    },
+    {
+      "alternative_explanations": [],
+      "claim_status": "UNKNOWN",
+      "classification": "INSUFFICIENT_DATA",
+      "event_id": "SOL-SYN-003",
+      "inference": "Required fixture inputs were expressly missing; no signal should be inferred.",
+      "missing_evidence": [
+        "slot metadata and signed oracle source samples"
+      ],
+      "network": "solana",
+      "observation": {
+        "missing": "slot metadata and signed oracle source samples"
+      },
+      "observed_at": "2026-10-01T10:00:04+00:00",
+      "prohibited_inferences": [
+        "No malicious actor attribution",
+        "No realized harm or profit",
+        "No live execution authority"
+      ],
+      "source_kind": "synthetic_fixture",
+      "source_ref": "fixture:solana:missing:03"
+    }
+  ],
+  "mode": "OFFLINE_SYNTHETIC",
+  "network_counts": {
+    "arbitrum_one": {
+      "events": 3,
+      "hypotheses": 3,
+      "unknown": 0
+    },
+    "solana": {
+      "events": 3,
+      "hypotheses": 2,
+      "unknown": 1
+    }
+  },
+  "project": "NETRUNNER FOUNDATION",
+  "schema_version": "0.1",
+  "scope": "Fabricated examples only; Solana and Arbitrum evidence tracks stay separate; no actual wallets or transactions"
+}
