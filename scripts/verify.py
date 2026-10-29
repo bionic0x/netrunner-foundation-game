@@ -6,6 +6,7 @@ import importlib.util
 import json
 from pathlib import Path
 import re
+import shutil
 import subprocess
 import sys
 
@@ -40,7 +41,11 @@ def main() -> int:
         return 1
     print("Dossier parity: Python replay = JSON export = embedded console data")
     print("SHA-256:", expected["dossier_sha256"])
-    return 0
+    node = shutil.which("node")
+    if node is None:
+        print("VERIFY_REJECT: Node.js 20+ is required for Academy gameplay tests", file=sys.stderr)
+        return 2
+    return subprocess.run([node, "--test", str(EXAMPLES / "test_academy.cjs")], cwd=ROOT).returncode
 
 
 if __name__ == "__main__":
