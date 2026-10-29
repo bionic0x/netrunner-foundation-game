@@ -1,20 +1,21 @@
 # Game development roadmap
 
-## Foundation — prepared
+## Foundation — implemented
 
 Separate the v0.2 package from Ante, retain the v0.1 deterministic replay and
 six-event fixture, verify exported/embedded dossier parity, and provide one
-local validation command. The private GitHub repository has been created. GitHub Actions has not yet
-been verified on the remote.
+local validation command. The standalone GitHub repository has been created.
+Its first CI run was blocked before execution by the account's billing or
+spending limit; remote validation must be reported separately from local tests.
 
-## First playable mission — next
+## First playable mission — v0.3 implemented
 
-Implement one self-contained HACK THE PLANET Academy investigation based on
-the existing synthetic fixture. The player selects a network, inspects an event,
-chooses the claim supported by the observations, and records the evidence
-still needed. Feedback explains the result and plausible alternatives.
+Ghost Signal is a self-contained HACK THE PLANET Academy investigation based
+on the existing synthetic fixture. The player selects a network, inspects
+three events in sequence, chooses the supported claim and requests missing
+evidence. Feedback explains each result and plausible alternatives.
 
-Acceptance:
+Implemented acceptance criteria:
 
 - A complete start → investigation → decision → explanation → replay loop.
 - A hypothesis and an unknown cannot be presented as verified evidence.
