@@ -6,9 +6,24 @@ An offline cyberpunk research and learning prototype: inspect six synthetic
 Solana and Arbitrum One events, compare observations and hypotheses, explore
 the CRASHOVERRIDE terminal, and export a reproducible evidence dossier.
 
-## Run
+## Play Ghost Signal
 
-Requires Python 3.10+; no third-party Python packages are needed.
+Open `examples/netrunner-foundation/index.html` and choose **Play Ghost Signal**
+or **Academy**. Select Solana or Arbitrum One, inspect the source record, choose
+a supported claim and an evidence request, then read the explanation before
+continuing. Each track has three stages and a final debrief.
+
+Training points reward claim discipline and useful evidence requests. They do
+not change the research dossier, its claim states or its SHA-256 digest.
+**Replay mission** returns to track selection; **Reset mission** discards the
+current attempt. Progress stays in this tab and resets on page reload.
+
+## Run locally
+
+Playing requires a modern browser; there is no install or build step. Python
+3.10+ can serve the files and run the research replay. The full development
+verification command additionally requires Node.js 20+ for gameplay tests.
+No third-party packages are needed.
 
 ```sh
 python3 scripts/verify.py
@@ -26,13 +41,17 @@ commands and JSON export operate in the browser. There is no build step.
 - Six synthetic events across two independent network tracks.
 - Deterministic Python replay with a SHA-256 dossier digest.
 - CRASHOVERRIDE console with evidence inspection and JSON export.
+- Ghost Signal Academy mission: three stages per network, source inspection,
+  scored decisions, explanatory feedback, debrief and reset.
 - Consolidated v0.2 documentation, source-claim adjudication and contracts.
 - 23 existing test cases: 22 pass; one is intentionally skipped when the private
   source manifest is absent. The verification command also compares the full
   saved and embedded dossiers against a fresh replay.
+- Seven additional Node.js tests cover mission completion on both networks,
+  corrections, reset, input rejection, score isolation and source immutability.
 
-This is the starting prototype, with no mission progression, scoring or save
-system yet. The next game milestone is specified in [ROADMAP.md](ROADMAP.md).
+This v0.3 prototype includes a complete local mission loop. Persistent saves
+and a larger campaign remain future milestones in [ROADMAP.md](ROADMAP.md).
 All scenarios are synthetic. Live observations and financial execution remain
 outside this implementation.
 
